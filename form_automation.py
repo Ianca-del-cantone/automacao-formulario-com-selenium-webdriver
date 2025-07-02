@@ -1,7 +1,8 @@
-import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 driver = webdriver.Chrome()
@@ -15,11 +16,9 @@ class PreencherFormulario:
 
     def abrir_pagina(self):
         self.driver.get("https://www.tutorialspoint.com/selenium/practice/selenium_automation_practice.php")
-        time.sleep(1)
 
     def inserir_nome(self, nome):
         self.driver.find_element(By.ID, "name").send_keys(nome)
-        time.sleep(1)
 
     def inserir_email(self, email):
         self.driver.find_element(By.ID, "email").send_keys(email)
@@ -29,43 +28,36 @@ class PreencherFormulario:
 
     def inserir_numero(self, numero):
         self.driver.find_element(By.ID, "mobile").send_keys(numero)
-        time.sleep(1)
 
     def inserir_data_aniversario(self, data):
         self.driver.find_element(By.ID, "dob").send_keys(data)
-        time.sleep(1)
 
     def inserir_assunto(self, assunto):
         self.driver.find_element(By.ID, "subjects").send_keys(assunto)
-        time.sleep(1)
 
     def escolher_hobbies(self):
         self.driver.find_element(By.XPATH, '(//input[@type="checkbox"])[3]').click()
-        time.sleep(1)
 
     def escolher_arquivo(self):
         self.driver.find_element(By.ID, "picture").send_keys(r"C:\Users\Ianca Honorato\Downloads\SeleniumWebdriver.png")
-        time.sleep(1)
 
     def endereco_atual(self, endereco):
         self.driver.find_element(By.CSS_SELECTOR, "textarea#picture").send_keys(endereco)
-        time.sleep(2)
 
     def escolher_estado(self):
         select_element = self.driver.find_element(By.ID, "state")
         select = Select(select_element)
         select.select_by_value("Haryana")
-        time.sleep(1)
 
     def escolher_cidade(self):
         select_element = self.driver.find_element(By.ID, "city")
         select = Select(select_element)
         select.select_by_index(1)
-        time.sleep(1)
 
     def clicar_login(self):
-        self.driver.find_element(By.XPATH, '//input[@type="submit"]').click()
-        time.sleep(1)
+        botao = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, '//input[@type="submit"]')))
+        botao.click()
 
 
 formulario = PreencherFormulario(driver)
