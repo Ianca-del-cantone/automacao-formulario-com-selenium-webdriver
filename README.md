@@ -1,4 +1,4 @@
-# 📝 Automação de Formulário com Selenium Webdriver
+# 📝 Automação de Formulário com Selenium
 
 
 Este repositório contém um projeto de automação de testes de interface utilizando **Selenium WebDriver com Python**.  O objetivo é preencher automaticamente um formulário do site [TutorialsPoint Practice Form](https://www.tutorialspoint.com/selenium/practice/selenium_automation_practice.php), simulando a entrada de dados em campos variados.
@@ -11,7 +11,7 @@ Este repositório contém um projeto de automação de testes de interface utili
   - Campos de texto
   - Botões de rádio
   - Checkbox
-  - Upload de arqivo
+  - Upload de imagem
   - Campo de autocompletar (subjects)
   - Dropdowns (estado/cidade)
 - Aplicar estrutura de código orientada a objetos
@@ -21,6 +21,7 @@ Este repositório contém um projeto de automação de testes de interface utili
 - Python
 - Selenium WebDriver
 - PyCharm
+
 
 ## 🚀 Como executar
 
